@@ -5,8 +5,9 @@ A 15-minute activity that teaches teachers and students how to evaluate the priv
 **What it does**
 
 - **Scan:** practice spotting risky and missing language in sample AI-tool policies, using three lenses: Data, Rules and Sight.
-- **Adaptive ladder:** everyone starts at a Standard level. The activity recommends an easier or harder scenario based on results, with achievement badges. There is no timer and no leaderboard.
-- **Field test:** apply the same method to a real tool. Choose Manual, the in-browser Policy Analyzer, or Quick Profiles (notes on a few popular tools).
+- **Adaptive ladder:** everyone starts at an Easy level. The activity recommends an easier or harder scenario based on results, with achievement badges. There is no timer and no leaderboard.
+- **Part A and Part B:** Part A practices spotting risky clauses. After a results page, Part B asks what a policy leaves out.
+- **Field test:** a self-contained check of a real tool (ChatGPT, Gemini, Canva or Claude). Learners read short evidence summaries on the page and judge nine questions. Advanced learners can bring their own tool with Manual or the in-browser Policy Analyzer.
 - **Clearance Card:** a one-page result with a verdict and next steps.
 - **Operator guide:** a run of show and discussion questions for facilitators.
 

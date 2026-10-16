@@ -38,7 +38,7 @@ html, body { margin: 0; }
 body {
   background: var(--bg);
   color: var(--text);
-  font: 400 15px/1.65 var(--font-body);
+  font: 400 17px/1.6 var(--font-body);
   padding-inline: 16px;
   padding-block: 0 64px;
   min-height: 100vh;
@@ -59,7 +59,7 @@ nav.steps { display: flex; gap: 2px; overflow-x: auto; margin-top: 8px; scrollba
 nav.steps::-webkit-scrollbar { display: none; }
 nav.steps button {
   flex: 1 0 auto; background: transparent; color: var(--muted); border: 0; border-bottom: 2px solid transparent;
-  font: 500 12px/1.2 var(--font-body); letter-spacing: .08em; text-transform: uppercase; padding: 10px 12px; cursor: pointer; white-space: nowrap;
+  font: 500 13px/1.2 var(--font-body); letter-spacing: .08em; text-transform: uppercase; padding: 10px 12px; cursor: pointer; white-space: nowrap;
 }
 nav.steps button small { display: block; font-size: 10px; opacity: .7; letter-spacing: .04em; text-transform: none; margin-top: 2px; }
 nav.steps button:hover { color: var(--accent); }
@@ -73,11 +73,11 @@ main { padding-top: 24px; display: grid; gap: 20px; }
 .panel p { margin: 0 0 12px; max-width: 68ch; }
 .prompt::before { content: "> "; color: var(--accent); }
 .muted { color: var(--muted); }
-.small { font-size: 13px; }
+.small { font-size: 14.5px; }
 .stack { display: grid; gap: 14px; }
 
 .btn {
-  font: 600 14px/1.2 var(--font-body); letter-spacing: .04em; cursor: pointer; padding: 12px 16px; min-height: 44px;
+  font: 600 15.5px/1.2 var(--font-body); letter-spacing: .04em; cursor: pointer; padding: 13px 18px; min-height: 48px;
   background: transparent; color: var(--accent); border: 1px solid var(--accent-dim);
 }
 .btn:hover { background: rgba(34,211,255,.1); border-color: var(--accent); }
@@ -109,13 +109,13 @@ main { padding-top: 24px; display: grid; gap: 20px; }
 .clause.done.false, .clause.done.miss { border-color: var(--red); }
 .clause.done.lens { border-color: var(--amber); }
 .clause-head { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
-blockquote { margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--accent-dim); font-size: 15px; }
+blockquote { margin: 0; padding: 0 0 0 14px; border-left: 2px solid var(--accent-dim); font-size: 17px; }
 .lens-pick { display: flex; gap: 8px; flex-wrap: wrap; }
-.chip { font: 600 13px/1 var(--font-body); padding: 11px 14px; min-height: 44px; background: transparent; cursor: pointer; border: 1px solid var(--c); color: var(--c); letter-spacing: .08em; }
+.chip { font: 600 15px/1 var(--font-body); padding: 11px 14px; min-height: 44px; background: transparent; cursor: pointer; border: 1px solid var(--c); color: var(--c); letter-spacing: .08em; }
 .chip:hover { background: rgba(255,255,255,.07); }
-.feedback { font-size: 14px; padding: 10px 12px; border-left: 3px solid var(--fc, var(--accent)); background: rgba(255,255,255,.03); }
+.feedback { font-size: 16px; padding: 10px 12px; border-left: 3px solid var(--fc, var(--accent)); background: rgba(255,255,255,.03); }
 .feedback strong { color: var(--fc, var(--accent)); letter-spacing: .06em; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 2px; }
-.tag { display: inline-block; padding: 1px 8px; font-size: 11px; letter-spacing: .1em; border: 1px solid var(--c); color: var(--c); margin-right: 6px; }
+.tag { display: inline-block; padding: 1px 8px; font-size: 12.5px; letter-spacing: .1em; border: 1px solid var(--c); color: var(--c); margin-right: 6px; }
 
 .meter { height: 8px; background: #10264a; border: 1px solid var(--line); }
 .meter > i { display: block; height: 100%; background: var(--accent); box-shadow: 0 0 8px rgba(34,211,255,.7); transition: width .3s; }
@@ -144,11 +144,11 @@ input::placeholder, textarea::placeholder { color: #4f6f94; }
 .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .q { border: 1px solid var(--line); background: var(--panel-solid); border-left: 3px solid var(--c); padding: 14px; display: grid; gap: 10px; }
 .q .qt { font-weight: 500; }
-.q .hint { font-size: 13px; color: var(--muted); }
+.q .hint { font-size: 14.5px; color: var(--muted); }
 .q .stop { color: var(--red); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
 .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 @media (max-width: 560px) { .opts { grid-template-columns: 1fr; } }
-.opt { font: 500 13px/1.3 var(--font-body); padding: 11px 8px; min-height: 44px; background: transparent; color: var(--text); border: 1px solid var(--line); cursor: pointer; }
+.opt { font: 500 16px/1.3 var(--font-body); padding: 12px 8px; min-height: 48px; background: transparent; color: var(--text); border: 1px solid var(--line); cursor: pointer; }
 .opt:hover { border-color: var(--accent); }
 .opt[aria-pressed="true"][data-v="0"] { border-color: var(--ok); color: var(--ok); background: rgba(43,224,138,.1); }
 .opt[aria-pressed="true"][data-v="1"] { border-color: var(--amber); color: var(--amber); background: rgba(255,207,64,.1); }
@@ -170,7 +170,7 @@ input::placeholder, textarea::placeholder { color: #4f6f94; }
 .stops ul { margin: 6px 0 0; padding-left: 18px; }
 
 /* guide */
-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 .tablewrap { overflow-x: auto; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--accent-dim); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 11px; }
@@ -313,6 +313,37 @@ blockquote.ev { margin: 6px 0 0; padding: 6px 10px; border-left: 2px solid var(-
 a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .limits { border: 1px solid var(--amber); background: rgba(255,207,64,.06); padding: 12px 14px; display: grid; gap: 8px; font-size: 13px; }
 .limits b:first-child { color: var(--amber); font: 700 14px/1.2 var(--font-display); letter-spacing: .06em; text-transform: uppercase; }
+
+.lead { font-size: 20px; line-height: 1.5; color: var(--text); max-width: 60ch; }
+.steps3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.stepcard { border: 1px solid var(--line); background: var(--panel-solid); padding: 14px; display: grid; gap: 4px; align-content: start; }
+.stepn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent); display: grid; place-items: center; font: 700 15px var(--font-display); }
+.stepcard b { font: 700 19px/1.2 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.stepcard em { font: 500 12px var(--font-mono); color: var(--muted); font-style: normal; letter-spacing: .08em; text-transform: uppercase; }
+.stepcard p { margin: 4px 0 0; font-size: 16px; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.segbtn { font: 600 14px/1.2 var(--font-mono); padding: 11px 14px; min-height: 46px; background: transparent; color: var(--muted); border: 1px solid var(--line); cursor: pointer; }
+.segbtn:hover { color: var(--accent); border-color: var(--accent-dim); }
+.segbtn[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: rgba(34,211,255,.1); }
+.packs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.pack { text-align: left; background: var(--panel-solid); border: 1px solid var(--line); color: var(--text); padding: 16px; cursor: pointer; font: inherit; display: grid; gap: 4px; align-content: start; }
+.pack:hover { border-color: var(--accent); background: rgba(34,211,255,.07); }
+.pack strong { font: 700 24px/1.1 var(--font-display); color: var(--accent); letter-spacing: .04em; }
+.packacc { font: 500 12.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--amber); }
+.evbox { border: 1px solid var(--accent-dim); background: #08132a; padding: 14px 16px; display: grid; gap: 8px; }
+.evtitle { font: 600 12px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dim); }
+.evbox ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 17px; }
+.howto { border: 1px solid var(--line); background: var(--panel-solid); padding: 12px 14px; font-size: 16px; display: grid; gap: 6px; }
+.reco { border: 2px solid var(--accent); background: rgba(34,211,255,.07); padding: 16px; display: grid; gap: 10px; }
+.recolab { font: 600 12px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.btn.big { font-size: 17px; padding: 14px 22px; min-height: 54px; }
+.linkbtn { background: none; border: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font: 500 14px var(--font-mono); padding: 6px 0; }
+.example { border: 1px dashed var(--accent-dim); padding: 14px; display: grid; gap: 12px; background: rgba(34,211,255,.04); }
+.exrow { display: grid; gap: 6px; }
+.taps { display: flex; gap: 8px; flex-wrap: wrap; }
+.opt.tap { min-width: 56px; }
+.opt.tap[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: rgba(34,211,255,.14); }
+.tapsleg { display: flex; justify-content: space-between; max-width: 340px; }
 </style>
 <style>[hidden]{display:none!important}</style>
 </head>
@@ -562,6 +593,41 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
         { q: "Does it say whether data is used to train AI?", ans: false, why: "Nothing is said about AI training either way." },
         { q: "Does it say how stored data is protected, not just how it travels?", ans: false, why: "Paragraph A mentions a secure connection, which covers data moving between systems. It says nothing about data at rest." }
       ]
+    },
+    {
+      id: "gradebuddy",
+      tier: 1,
+      name: "GradeBuddy Free",
+      pitch: "A free AI that grades essays in seconds. A colleague says it is great and wants to upload a whole class set tomorrow. Before anyone does, read the terms like an analyst.",
+      clauses: [
+        { t: "We sell and share your students' essays and names with advertisers and data brokers.", truth: "flag", lens: "data", why: "Student work and names are being sold. This is about as clear a warning as you will ever see." },
+        { t: "We keep everything you upload forever.", truth: "flag", lens: "data", why: "No end date at all. Student essays would never be deleted." },
+        { t: "GradeBuddy is for adults only, but you can upload work from students of any age.", truth: "flag", lens: "rules", why: "The tool accepts work from students of any age but says nothing about consent. Under 13, COPPA requires it." },
+        { t: "We do not follow FERPA or COPPA. Those laws do not apply to us.", truth: "flag", lens: "rules", why: "A tool that holds student work cannot simply declare the student privacy laws do not apply." },
+        { t: "Our terms may change at any time and we will not tell you.", truth: "flag", lens: "sight", why: "The rules can change under you, and you will never be told." },
+        { t: "We cannot tell you who owns GradeBuddy.", truth: "flag", lens: "sight", why: "No owner and no one to hold responsible." },
+        { t: "You can delete any class from Settings and we remove it within 30 days.", truth: "safe", why: "You can do it yourself, and there is a deadline." },
+        { t: "All uploads are encrypted in transit and at rest.", truth: "safe", why: "A specific security measure is named." },
+        { t: "We use student essays to train AI models that we license to other companies.", truth: "flag", lens: "data", why: "Your students' writing trains a product that other companies pay for." },
+        { t: "Our privacy policy is on our home page, in plain language.", truth: "safe", why: "Easy to find and easy to read." }
+      ],
+      policyName: "QuickQuiz Free",
+      policy: [
+        "QuickQuiz Free makes quizzes from your notes. Your notes are saved in your account.",
+        "We never sell your data, and we do not show ads.",
+        "Delete your account in Settings. We delete your notes within 30 days.",
+        "QuickQuiz Free is for teachers 18 and older.",
+        "QuickQuiz Free is made by Quick Learning Inc., 12 Elm Street, Boston, MA. Email: help@quickquiz.example.",
+        "Students do not use QuickQuiz Free."
+      ],
+      silence: [
+        { q: "Does it say whether it sells your data?", ans: true, why: "Yes. Paragraph B says it never does." },
+        { q: "Can you delete your notes yourself?", ans: true, why: "Yes. Paragraph C says how, with a 30-day deadline." },
+        { q: "Does it say who is allowed to use it?", ans: true, why: "Yes. Paragraphs D and F say teachers 18 and older, and not students." },
+        { q: "Does it give a company address?", ans: true, why: "Yes. Paragraph E gives a street address and an email." },
+        { q: "Does it say whether your notes train the AI?", ans: false, why: "Nothing is said about AI training either way." },
+        { q: "Does it name FERPA or any student privacy law?", ans: false, why: "No law is named." }
+      ]
     }
     ],
     student: [{
@@ -739,6 +805,42 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
         { q: "Does it say whether your posts train an AI?", ans: false, why: "Nothing is said either way." },
         { q: "Does it give a street address for the company?", ans: false, why: "Paragraph F gives a company name and an email, but no address." }
       ]
+    },
+    {
+      id: "freehomework",
+      tier: 1,
+      name: "FreeHomeworkNow",
+      pitch: "A free chatbot that answers any homework question. Your whole class is already using it. Before you sign up, read the terms like an analyst.",
+      clauses: [
+        { t: "To use FreeHomeworkNow you must give us your full name, home address and phone number.", truth: "flag", lens: "data", why: "A homework helper has no reason to need your home address or phone number." },
+        { t: "We share your chats and personal information with advertisers.", truth: "flag", lens: "data", why: "What you type and who you are are handed to advertisers." },
+        { t: "We keep your chats forever, even if you delete your account.", truth: "flag", lens: "data", why: "\"Delete\" does not mean deleted, and there is no end date." },
+        { t: "FreeHomeworkNow is for kids of any age. We do not ask for a parent's permission.", truth: "flag", lens: "rules", why: "No age limit and no parent permission. Under 13, the law (COPPA) requires real parental consent." },
+        { t: "FreeHomeworkNow works even when your school blocks it.", truth: "flag", lens: "rules", why: "It sidesteps school filters on purpose, which breaks school rules and internet safety requirements (CIPA)." },
+        { t: "You cannot read our privacy policy until you create an account.", truth: "flag", lens: "sight", why: "If you must sign up before you can read the rules, you cannot judge them first." },
+        { t: "We can change these rules at any time without telling you.", truth: "flag", lens: "sight", why: "The rules can change after you have already shared things." },
+        { t: "You can delete your account in Settings, and your chats are erased within 30 days.", truth: "safe", why: "You can do it yourself, and there is a deadline." },
+        { t: "We are a company called Free Help Co., and you can reach us at help@freehomeworknow.example.", truth: "safe", why: "A named company and a way to contact it." },
+        { t: "FreeHomeworkNow shows a warning before you share personal details in a chat.", truth: "safe", why: "A built-in reminder helps you avoid oversharing." }
+      ],
+      policyName: "StudyBuddy",
+      policy: [
+        "StudyBuddy turns your notes into practice questions. Your notes are saved in your account.",
+        "StudyBuddy is for students 13 and older. If you are under 18, a parent or guardian must agree.",
+        "We do not sell your information.",
+        "You can delete your notes and your account in Settings.",
+        "StudyBuddy is made by Study Tools LLC. Email: hello@studybuddy.example.",
+        "We may use your notes to improve StudyBuddy."
+      ],
+      silence: [
+        { q: "Does it state a minimum age?", ans: true, why: "Yes. Paragraph B says 13, with a parent or guardian needed under 18." },
+        { q: "Does it say whether it sells your data?", ans: true, why: "Yes. Paragraph C says it does not." },
+        { q: "Can you delete your notes yourself?", ans: true, why: "Yes. Paragraph D says where." },
+        { q: "Does it say who owns StudyBuddy and how to contact them?", ans: true, why: "Yes. Paragraph E gives a company name and an email." },
+        { q: "Does it say how long deleted notes take to disappear?", ans: false, why: "Deleting is possible, but no time period is given." },
+        { q: "Does it say clearly whether your notes train the AI?", ans: false, why: "Paragraph F says notes may \"improve StudyBuddy.\" That is not a clear answer about AI training." },
+        { q: "Does it say how a parent's permission is checked?", ans: false, why: "It says a parent must agree but not how that is verified." }
+      ]
     }
     ]
   };
@@ -860,11 +962,78 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     ] }
   ];
 
+  /* ---------- Field test library: real tools with the evidence built in ---------- */
+  var R3 = { ev: ["This one is not in any company policy. Your district decides which tools are approved.", "Check your district's approved-tools list or ask your tech director."], key: 1, why: "Until your district says yes, treat any tool as Unclear." };
+  var S1 = { ev: ["The company's privacy policy is public and linked from its website."], key: 0, why: "The policy is easy to find, so this is a Yes." };
+  var PACKS = [
+    { id: 'chatgpt', name: 'ChatGPT', acct: 'Personal account', blurb: "OpenAI's chatbot, used with a personal login.",
+      src: [['OpenAI privacy policy', 'https://openai.com/policies/privacy-policy'], ['OpenAI age help article', 'https://help.openai.com/en/articles/8313401-is-chatgpt-safe-for-all-ages']],
+      q: {
+        d1: { ev: ["OpenAI's privacy policy lists what it collects: your account details, what you type and upload, and device and usage information."], key: 0, why: "A clear list of what is collected is given, so this is a Yes." },
+        d2: { ev: ["OpenAI says your chats may be used to improve its models unless you turn that off in your data settings.", "The setting is in your account, and it starts turned on."], key: 1, why: "You can opt out, but the default favors the company. That makes this Unclear, not a clean Yes." },
+        d3: { ev: ["OpenAI says chats you delete are removed from its systems within about 30 days.", "Chats you do not delete stay in your history, and the page gives no overall time limit."], key: 1, why: "A deletion period exists, but nothing limits how long other chats are kept. It is only partly answered." },
+        r1: { ev: ["OpenAI says ChatGPT is not meant for children under 13.", "It says users 13 to 17 need a parent or guardian's permission."], key: 1, why: "An age and a consent rule are stated, but a school cannot give that permission for students. It does not work for a whole class." },
+        r2: { ev: ["The personal-account terms do not mention FERPA, COPPA or a school data privacy agreement."], key: 2, why: "No student privacy law or school agreement is named for personal accounts." },
+        r3: R3, s1: S1,
+        s2: { ev: ["The company is named (OpenAI) and the policy gives ways to contact it about privacy."], key: 0, why: "A named owner and contact details are given." },
+        s3: { ev: ["The policy says data can be shared with service providers, affiliates and authorities. They are described by type, not by name.", "OpenAI earns money from paid plans such as ChatGPT Plus."], key: 1, why: "It says who in general but does not name them. Only partly answered." }
+      } },
+    { id: 'gemini-personal', name: 'Gemini', acct: 'Personal Google account', blurb: "Google's AI assistant, used with a personal Google login.",
+      src: [['Gemini Apps privacy hub', 'https://support.google.com/gemini/answer/13594961']],
+      q: {
+        d1: { ev: ["Google's Gemini privacy page says it saves your chats, files you add, feedback, and information from your device."], key: 0, why: "The page names what is collected, so this is a Yes." },
+        d2: { ev: ["Google says that with Gemini Apps Activity on, some chats may be read by reviewers and used to improve Google's products.", "You can turn that activity setting off."], key: 1, why: "You can opt out, but people may read chats by default. That makes this Unclear." },
+        d3: { ev: ["Google says activity is deleted automatically after a set time (18 months unless you change it), and you can delete it yourself.", "With the activity setting off, chats are still kept for a short time (up to 72 hours) to run the service."], key: 0, why: "A time period and a way to delete are both stated." },
+        r1: { ev: ["Age rules for personal accounts depend on your country and the kind of account.", "Younger users are usually handled through a parent-managed account."], key: 1, why: "Age rules exist but depend on the account type, so there is no simple answer for a class." },
+        r2: { ev: ["The personal-account terms do not offer a school data privacy agreement or mention FERPA."], key: 2, why: "No school agreement or student privacy law is named for personal accounts." },
+        r3: R3, s1: S1,
+        s2: { ev: ["Google LLC is named, with an address and a privacy contact in its policy."], key: 0, why: "A named owner and contact details are given." },
+        s3: { ev: ["Google's privacy policy describes who it shares data with by category.", "It says Google makes most of its money from advertising."], key: 1, why: "Recipients are described in groups, and the company's business is ads. Read closely." }
+      } },
+    { id: 'gemini-school', name: 'Gemini', acct: 'School account (Workspace for Education)', blurb: "Google's AI assistant inside a school-managed Google account.",
+      src: [['Google: Gemini for Education', 'https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-gemini-notebook-for-education'], ['Workspace for Education terms', 'https://workspace.google.com/terms/education_terms/']],
+      q: {
+        d1: { ev: ["Google says Workspace for Education services are covered by the Workspace for Education terms, with your school in control of the data.", "The details are spread across several Google pages instead of one list."], key: 1, why: "There is no single clear list of what is collected. That makes this Unclear." },
+        d2: { ev: ["Google says Gemini in Workspace for Education is not reviewed by people and is not used to train AI models."], key: 0, why: "A clear promise against training and human review." },
+        d3: { ev: ["Your school's admin controls how long data is kept and can delete it.", "The overview page does not give one fixed number of days."], key: 1, why: "A way to delete exists, but no fixed period is stated. Partly answered." },
+        r1: { ev: ["Google says Gemini is available to all ages in school accounts, with extra safeguards for users under 18.", "Your school's admin has to turn it on."], key: 0, why: "Age and school control are clear. The school, not the student, decides." },
+        r2: { ev: ["It runs under the Workspace for Education terms. Google says it supports COPPA and FERPA."], key: 0, why: "A student privacy law and a school agreement are both named." },
+        r3: R3, s1: S1,
+        s2: { ev: ["Google LLC is named, with an address and a privacy contact."], key: 0, why: "A named owner and contact details are given." },
+        s3: { ev: ["Google publishes a list of the other companies that handle data (subprocessors).", "Google says Workspace for Education data is not used for ads."], key: 0, why: "A named list of recipients and a clear promise about ads." }
+      } },
+    { id: 'canva-edu', name: 'Canva', acct: 'Canva for Education (school account)', blurb: "The design tool, with a free school version for classrooms.",
+      src: [['Canva education trust page', 'https://www.canva.com/trust/education/'], ['Canva privacy page', 'https://www.canva.com/trust/privacy/']],
+      q: {
+        d1: { ev: ["Canva's privacy policy lists what it collects, such as account details, the designs and files you make, and usage information."], key: 0, why: "A clear list of what is collected is given, so this is a Yes." },
+        d2: { ev: ["Canva says student content in Canva for Education is not used to improve its AI features.", "It says students cannot opt in to that use."], key: 0, why: "A clear promise that student content is not used for AI features." },
+        d3: { ev: ["Canva keeps your content while your account is active and deletes it when you ask or your school closes the account.", "We did not find a clear number of days for deleted content."], key: 1, why: "A way to delete exists, but no time period was found. Partly answered." },
+        r1: { ev: ["Canva says it collects data from children under 13 only when a school authorizes it, and relies on the school to get consent.", "Some reviews say Canva is meant for ages 13 and up, so the age rule is not simple."], key: 1, why: "The school's role is stated, but the age rule is mixed. Confirm it before using with younger students." },
+        r2: { ev: ["Canva says its education product is built for FERPA and COPPA and has been certified by iKeepSafe.", "It offers a data processing addendum for districts."], key: 0, why: "Student privacy laws and a school agreement are both named." },
+        r3: R3, s1: S1,
+        s2: { ev: ["Canva is named, with contact details in its policy."], key: 0, why: "A named owner and contact details are given." },
+        s3: { ev: ["Canva says it shares data with service providers and trusted partners, described by type.", "Canva for Education is free for schools, and Canva earns money from paid plans."], key: 1, why: "It says who in general but does not name them. Partly answered." }
+      } },
+    { id: 'claude-personal', name: 'Claude', acct: 'Personal account', blurb: "Anthropic's AI assistant, used with a personal login.",
+      src: [['Anthropic privacy policy', 'https://www.anthropic.com/legal/privacy']],
+      q: {
+        d1: { ev: ["Anthropic's privacy policy lists what it collects: account details, what you type and upload, and device and usage information."], key: 0, why: "A clear list of what is collected is given, so this is a Yes." },
+        d2: { ev: ["Anthropic says chats can be used to train its models depending on a setting you choose.", "If you opt in, data may be kept longer."], key: 1, why: "It depends on a setting, so there is no clean promise. That makes this Unclear." },
+        d3: { ev: ["Anthropic says deleted chats are removed from its systems within about 30 days.", "If you allow training use, data can be kept for up to five years. If not, about 30 days."], key: 0, why: "Time periods and a way to delete are both stated." },
+        r1: { ev: ["Anthropic requires personal accounts to be 18 or older."], key: 2, why: "Students under 18 should not use a personal account. That is a clear No for most students." },
+        r2: { ev: ["The personal-account terms do not mention FERPA or a school agreement."], key: 2, why: "No student privacy law or school agreement is named." },
+        r3: R3, s1: S1,
+        s2: { ev: ["Anthropic is named, with contact details in its policy."], key: 0, why: "A named owner and contact details are given." },
+        s3: { ev: ["Anthropic says it shares data with service providers, described by type.", "It earns money from paid plans and business customers."], key: 1, why: "It says who in general but does not name them. Partly answered." }
+      } }
+  ];
+  function curPack() { var id = S.ft && S.ft.pack, r = null; PACKS.forEach(function (p) { if (p.id === id) r = p; }); return r; }
+
   var FORM_URL = 'https://forms.gle/PPunqHprn1bodmLD6';
 
   /* ---------- state ---------- */
   var DB = null, UID = null, IS_ADMIN = false;
-  var S = { az: { text: '', res: null, ovr: {}, err: '' }, usedAz: false, history: [], logged: {}, attempt: 0, tier: 2, setIdx: 0, order: null, sorder: null, sub: '', res: null, resErr: '', mode: 'manual', ver: 0, auto: {}, step: 'boot', role: null, c: {}, sil: {}, chk: {}, tool: '', dist: '', pol: '', ask: '', fb: { clear: 0, time: '', say: '' } };
+  var S = { ft: { pack: null, i: 0, ans: {} }, phase: 'A', t0: null, az: { text: '', res: null, ovr: {}, err: '' }, usedAz: false, history: [], logged: {}, attempt: 0, tier: 1, setIdx: 0, order: null, sorder: null, sub: '', res: null, resErr: '', mode: 'guided', ver: 0, auto: {}, step: 'boot', role: null, c: {}, sil: {}, chk: {}, tool: '', dist: '', pol: '', ask: '', fb: { clear: 0, len: '', say: '' } };
   var STEPS = [
     ['boot', 'Briefing', '1 min'],
     ['decode', 'Scan', '7 min'],
@@ -895,7 +1064,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     }
     var chosen = list[idx];
     S.setIdx = idx; S.tier = chosen.tier; S.order = shuffle(chosen.clauses.length); S.sorder = shuffle(chosen.silence.length);
-    S.c = {}; S.sil = {}; S.attempt++;
+    S.c = {}; S.sil = {}; S.attempt++; S.phase = 'A';
     var seen2 = seenGet(role); if (seen2.indexOf(chosen.id) < 0) { seen2.push(chosen.id); seenSet(role, seen2); }
   }
 
@@ -922,23 +1091,26 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
       return '<div class="rung' + (S.tier === tier ? ' cur' : '') + (best ? ' ' + best : '') + '"><i></i><span>' + nm + '</span></div>';
     }).join('<b class="link"></b>') + '</div>';
   }
+  function elapsedMin() { return S.t0 ? Math.max(1, Math.round((Date.now() - S.t0) / 60000)) : 0; }
   function offerPanel() {
     var pf = perf(), tier = S.tier, band = pf.band;
     var rec = band === 'strong' ? (tier < 3 ? 'up' : 'go') : band === 'weak' ? (tier > 1 ? 'down' : 'same') : 'go';
-    var msg = band === 'strong' ? (tier < 3 ? 'Strong run. You are ready for a harder scenario, or you can move on.' : 'You cleared the top of the ladder. Nice work.')
-      : band === 'weak' ? (tier > 1 ? 'That one was tough, and that is okay. An easier scenario will build the skill, then you can climb back up.' : 'Take another pass at this level. Re-read the three lenses, then try a fresh scenario.')
-      : 'Solid work. Move on, run another at this level, or level up when you are ready.';
-    function B(act, label, key) { return '<button class="btn' + (rec === key ? ' solid' : '') + '" data-act="' + act + '"' + (act === 'go' ? ' data-step="pill"' : '') + '>' + label + '</button>'; }
-    var btns = '';
-    if (tier > 1) btns += B('easier', 'Try an easier scenario', 'down');
-    btns += B('newset', 'Another at this level', 'same');
-    if (tier < 3) btns += B('harder', 'Try a harder scenario', 'up');
-    btns += B('go', 'Continue to the field test &rarr;', 'go');
+    var msg = band === 'strong' ? (tier < 3 ? 'Strong run. You are ready for a harder scenario.' : 'You cleared the top of the ladder. Nice work.')
+      : band === 'weak' ? (tier > 1 ? 'That one was tough, and that is okay. An easier scenario will build the skill, then you can climb back up.' : 'Take another pass at this level. Re-read the three lenses, slow down, and try a fresh scenario.')
+      : 'Solid work. Keep going, or try a harder scenario when you are ready.';
+    var opts = {
+      easier: ['Try an easier scenario', 'down'], newset: ['Try another scenario at this level', 'same'],
+      harder: ['Try a harder scenario', 'up'], go: ['Continue to the field test', 'go']
+    };
+    var avail = ['easier', 'newset', 'harder', 'go'].filter(function (k) { return !(k === 'easier' && tier === 1) && !(k === 'harder' && tier === 3); });
+    var recAct = avail.filter(function (k) { return opts[k][1] === rec; })[0] || 'go';
+    function btn(k, big) { return '<button class="btn' + (big ? ' solid big' : '') + '" data-act="' + k + '"' + (k === 'go' ? ' data-step="pill"' : '') + '>' + opts[k][0] + (big ? ' &rarr;' : '') + '</button>'; }
     return '<section class="panel stack"><h3>Level complete &middot; ' + TIERNAME[tier - 1] + '</h3>' +
-      '<div class="scorebox"><div class="stat"><b>' + Math.round(pf.a * 100) + '%</b><span>Clause scan</span></div><div class="stat"><b>' + Math.round(pf.b * 100) + '%</b><span>What is missing</span></div><div class="stat"><b>' + tier + '/3</b><span>Level</span></div></div>' +
+      '<div class="scorebox"><div class="stat"><b>' + Math.round(pf.a * 100) + '%</b><span>Spotting risks (Part A)</span></div><div class="stat"><b>' + Math.round(pf.b * 100) + '%</b><span>What is missing (Part B)</span></div><div class="stat"><b>' + tier + '/3</b><span>Level</span></div></div>' +
       '<p>' + msg + '</p>' +
-      '<p class="small muted">Every flag you found was one of three things: unclear <b style="color:var(--lens-data)">data</b> handling, a missing or dodged <b style="color:var(--lens-rules)">rule</b>, or a lack of <b style="color:var(--lens-sight)">sight</b>. That works on any tool.</p>' +
-      '<div class="row">' + btns + '</div></section>';
+      '<div class="reco"><div class="recolab">Recommended next step</div>' + btn(recAct, true) + '</div>' +
+      '<div class="small muted">Other options</div><div class="row">' + avail.filter(function (k) { return k !== recAct; }).map(function (k) { return btn(k, false); }).join('') + '</div>' +
+      '<p class="small muted">Every flag you found was one of three things: unclear <b style="color:var(--lens-data)">data</b> handling, a missing or dodged <b style="color:var(--lens-rules)">rule</b>, or a lack of <b style="color:var(--lens-sight)">sight</b>. That works on any tool.</p></section>';
   }
   function roleLabel() { return S.role === 'student' ? 'Student' : S.role === 'teacher' ? 'Teacher' : 'Unspecified'; }
 
@@ -1312,16 +1484,31 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     return h;
   }
 
+  function stepcard(n, title, time, text) {
+    return '<div class="stepcard"><span class="stepn">' + n + '</span><b>' + title + '</b><em>' + time + '</em><p>' + text + '</p></div>';
+  }
+
   function vBoot() {
     return '<section class="panel stack">' +
       '<div><h2 class="cursor">Briefing</h2>' +
-      '<p class="prompt">Every AI tool comes with a rulebook almost nobody reads. It decides what happens to your data. In the next 15 minutes you will learn to read it in a way that works on any tool.</p></div>' +
-      '<div><h3>You will use three lenses</h3>' + lensKey() + '</div>' +
-      '<div><h3>Choose your path</h3><div class="roles">' +
-        '<button class="role" data-act="role" data-role="teacher" aria-pressed="' + (S.role === 'teacher') + '"><strong>TEACHER / STAFF</strong>Evaluate a grading assistant. Think about student records, FERPA and district approval.</button>' +
-        '<button class="role" data-act="role" data-role="student" aria-pressed="' + (S.role === 'student') + '"><strong>STUDENT</strong>Evaluate a homework chatbot. Think about your own data, age limits and school rules.</button>' +
+      '<p class="lead">Threat Scanner is a short training activity that teaches you how to check whether an AI tool is safe to use with your schoolwork and personal information.</p>' +
+      '<p>It is practice for a real skill. It is not a survey and it is not a graded test.</p></div>' +
+      '<div><h3>Why this matters</h3><p>AI tools often collect what you type, upload and say. The rules about what happens to that information sit in the fine print, and most people never read it. You will learn to read it quickly and spot the parts that matter.</p></div>' +
+      '<div><h3>What you will do</h3><div class="steps3">' +
+        stepcard('1', 'Scan', 'About 7 minutes', 'Practice on made-up AI tools. Spot risky clauses, then notice what a policy leaves out.') +
+        stepcard('2', 'Field test', 'About 5 minutes', 'Judge a real tool, like ChatGPT or Gemini. We give you short summaries of what its policy says, so you stay on this page.') +
+        stepcard('3', 'Clearance Card', 'About 2 minutes', 'Get a verdict (Cleared, Ask First or Blocked) and a clear next step.') +
       '</div></div>' +
-      '<div class="row"><button class="btn solid" data-act="go" data-step="decode"' + (S.role ? '' : ' disabled') + '>Start the scan &rarr;</button>' +
+      '<div><h3>The three lenses you will use</h3>' + lensKey() + '</div>' +
+      '<div><h3>Good to know</h3><ul class="tight">' +
+        '<li>There is no timer and no grade. Rushing shows up as wrong answers, so take your time.</li>' +
+        '<li>It starts easy and adjusts to you. You can always choose an easier or harder scenario.</li>' +
+        '<li>Your answers stay on this page. At the very end there is a short, optional feedback form. It is separate from the activity.</li></ul></div>' +
+      '<div><h3>Choose your path</h3><div class="roles">' +
+        '<button class="role" data-act="role" data-role="teacher" aria-pressed="' + (S.role === 'teacher') + '"><strong>TEACHER / STAFF</strong>Examples about grading tools and student records. Think about FERPA and district approval.</button>' +
+        '<button class="role" data-act="role" data-role="student" aria-pressed="' + (S.role === 'student') + '"><strong>STUDENT</strong>Examples about homework tools. Think about your own data, age limits and school rules.</button>' +
+      '</div></div>' +
+      '<div class="row"><button class="btn solid big" data-act="go" data-step="decode"' + (S.role ? '' : ' disabled') + '>Start the scan &rarr;</button>' +
       (S.role ? '' : '<span class="muted small">Pick a path to begin.</span>') + '</div>' +
       '<p class="muted small">This is a teaching activity, not legal advice. Your district\'s technology office and solicitor make the final call on any tool.</p>' +
     '</section>';
@@ -1349,10 +1536,15 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     return '<article class="' + cls + '"><div class="clause-head"><span>Clause ' + ((pos === undefined ? i : pos) + 1) + '</span>' + stampHTML(r, cl) + '</div><blockquote>' + esc(cl.t) + '</blockquote>' + body + '</article>';
   }
 
-  function silenceHTML() {
+  function exampleHTML() {
+    return '<div class="example"><b>How it works: two quick examples</b>' +
+      '<div class="exrow"><blockquote class="ev">We keep your chats for 7 days, then delete them.</blockquote><div class="small"><span class="tag" style="--c:var(--ok)">CLEAR</span> A short, specific time limit is a good sign.</div></div>' +
+      '<div class="exrow"><blockquote class="ev">We may share your information with partners for business purposes.</blockquote><div class="small"><span class="tag" style="--c:var(--red)">FLAG</span> <span class="tag" style="--c:var(--lens-data)">DATA</span> Which partners? What purposes? Vague wording hides who can see your data.</div></div></div>';
+  }
+
+  function silenceBody() {
     var p = prod();
-    return '<section class="panel stack"><div><h3>Part B: what is it NOT telling you?</h3>' +
-      '<p>Silence is a signal too. For each question, decide whether this policy actually answers it. A vague phrase is not an answer.</p></div>' +
+    return '<section class="panel stack">' +
       '<div class="policybox"><div class="policy-title">New tool: ' + esc(p.policyName) + ' &mdash; full privacy policy</div>' +
       p.policy.map(function (c, k) { return '<p><b>' + String.fromCharCode(65 + k) + '.</b> ' + esc(c) + '</p>'; }).join('') + '</div>' +
       '<div>' + orderOf(p.silence.length, S.sorder).map(function (i) { var s = p.silence[i];
@@ -1368,32 +1560,49 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
   }
 
   function vScan() {
-    var p = prod(), t = tally(), n = p.clauses.length, allDone = t.done === n;
+    var p = prod(), t = tally(), n = p.clauses.length, allDone = t.done === n, ph = S.phase || 'A', h = '';
     var silDone = Object.keys(S.sil).length === p.silence.length;
-    var h = '<section class="panel stack"><div><h2>Scan</h2><p class="prompt">Target: <b>' + esc(p.name) + '</b>. ' + esc(p.pitch) + '</p></div>' + ladderHTML() + '<div class="row"><button class="btn" data-act="newset">Another at this level</button><span class="small muted">Level ' + S.tier + ' of 3 (' + TIERNAME[S.tier - 1] + '). Switching restarts the scan.</span></div>' +
-      '<div class="stack"><h3>Part A: read the terms</h3><p class="small muted">For each clause, mark it Clear if it looks fine or Flag it if it is a risk. Flags then go into a lens. Some clauses are fine, so wild guessing costs you.</p>' +
-      '<div class="progress"><span>' + t.done + ' of ' + n + ' scanned</span><div class="meter"><i style="width:' + (t.done / n * 100) + '%"></i></div></div>' +
-      '</div></section>';
-    if (!allDone) h += '<div class="hud">' + gaugeHTML('scan', t.done / n, '', 'Scanned', 'var(--accent)') + gaugeHTML('threat', t.flags ? t.caught / t.flags : 0, '', 'Threats caught', 'var(--ok)') + '</div>';
-    h += '<div class="stack">' + orderOf(p.clauses.length, S.order).map(function (ci, pos) { return clauseHTML(p.clauses[ci], ci, pos); }).join('') + '</div>';
-    if (allDone) {
-      h += '<section class="panel stack"><h3>Part A results</h3><div class="scorebox">' +
+
+    if (ph === 'T') {
+      return '<section class="panel stack"><div><span class="small muted">Scan &middot; between the parts</span><h2>Part A results</h2></div>' +
+        '<div class="scorebox">' +
         '<div class="stat"><b>' + t.caught + '/' + t.flags + '</b><span>Flags caught</span></div>' +
         '<div class="stat"><b>' + t.lens + '</b><span>Right flag, wrong lens</span></div>' +
         '<div class="stat ' + (t.miss ? 'warn' : '') + '"><b>' + t.miss + '</b><span>Missed</span></div>' +
         '<div class="stat ' + (t.falseAlarm ? 'warn' : '') + '"><b>' + t.falseAlarm + '</b><span>False alarms</span></div></div>' +
-        '<p class="small muted">There is no timer and no leaderboard on purpose. Real decisions are made slowly. Notice which lens you missed most. That is the one to slow down on.</p></section>';
-      h += badgesHTML(['sharp', 'steady', 'lenses']);
+        '<p class="small muted">There is no timer and no leaderboard on purpose. Real decisions are made slowly. Notice which lens you missed most. That is the one to slow down on.</p></section>' +
+        badgesHTML(['sharp', 'steady', 'lenses']) +
+        '<section class="panel stack"><h3>Next: Part B</h3><p>So far you judged what a policy <b>says</b>. Part B flips it: what does a policy <b>not</b> say? A policy that stays silent on how long it keeps your data, or whether it trains AI on your work, is telling you something too. It takes about 3 minutes.</p>' +
+        '<div class="row"><button class="btn solid big" data-act="phase" data-p="B">Start Part B &rarr;</button></div></section>';
+    }
+
+    if (ph === 'B') {
+      h = '<section class="panel stack"><div class="row" style="justify-content:space-between"><span class="small muted">Scan &middot; Part 2 of 2</span></div>' +
+        '<div><h2>Part B: what is it NOT telling you?</h2><p class="prompt">Silence is a signal too. Below is the full privacy policy of a different tool. For each question, decide whether the policy has actually answered it.</p></div>' +
+        '<div class="howto"><b>How to answer</b><ul class="tight"><li><b>Answered</b>: the policy clearly says it.</li><li><b>Silent</b>: the policy does not say, or only hints. Example: "We keep data as long as necessary" does not say how long, so it is Silent.</li></ul></div></section>';
       if (!silDone) {
         var sAns = Object.keys(S.sil).length, sOk = p.silence.filter(function (q2, k) { return S.sil[k] && (S.sil[k] === 'ans') === q2.ans; }).length;
         h += '<div class="hud">' + gaugeHTML('silans', sAns / p.silence.length, '', 'Answered', 'var(--accent)') + gaugeHTML('silacc', sAns ? sOk / sAns : 0, '', 'Accuracy', 'var(--ok)') + '</div>';
       }
-      h += silenceHTML();
+      h += silenceBody();
+      if (silDone) h += '<section class="panel stack"><h3>Part B complete</h3><p>Nice work. See your level results and what to do next.</p><div class="row"><button class="btn solid big" data-act="phase" data-p="R">See my level results &rarr;</button></div></section>';
+      return h;
     }
-    if (allDone && silDone) {
-      h += badgesHTML(['silence', 'flawless', 'comeback', 'climber', 'hardhero', 'fullladder', 'perfect']);
-      h += offerPanel();
+
+    if (ph === 'R') {
+      return '<section class="panel stack"><div><span class="small muted">Scan &middot; complete</span><h2>Your level results</h2></div>' + ladderHTML() + '</section>' +
+        offerPanel() + badgesHTML(['silence', 'flawless', 'comeback', 'climber', 'hardhero', 'fullladder', 'perfect']);
     }
+
+    h = '<section class="panel stack"><div class="row" style="justify-content:space-between"><span class="small muted">Scan &middot; Part 1 of 2 &middot; Level: ' + TIERNAME[S.tier - 1] + '</span><button class="linkbtn" data-act="newset">Try a different scenario</button></div>' +
+      '<div><h2>Part A: spot the risks</h2><p class="prompt">Target: <b>' + esc(p.name) + '</b>. ' + esc(p.pitch) + '</p></div>' +
+      (S.history.length === 0 ? exampleHTML() : '') +
+      '<div class="stack"><p>Read each clause. Mark it <b>Clear</b> if it is fine, or <b>Flag it</b> if it puts your data or rights at risk, then pick the lens it fails. Some clauses are fine, so flagging everything costs you.</p>' +
+      '<div class="progress"><span>' + t.done + ' of ' + n + ' scanned</span><div class="meter"><i style="width:' + (t.done / n * 100) + '%"></i></div></div>' +
+      '</div></section>';
+    if (!allDone) h += '<div class="hud">' + gaugeHTML('scan', t.done / n, '', 'Scanned', 'var(--accent)') + gaugeHTML('threat', t.flags ? t.caught / t.flags : 0, '', 'Threats caught', 'var(--ok)') + '</div>';
+    h += '<div class="stack">' + orderOf(p.clauses.length, S.order).map(function (ci, pos) { return clauseHTML(p.clauses[ci], ci, pos); }).join('') + '</div>';
+    if (allDone) h += '<section class="panel stack"><h3>Part A complete</h3><p>Nice work. See how you did, then move on to Part B.</p><div class="row"><button class="btn solid big" data-act="phase" data-p="T">See my Part A results &rarr;</button></div></section>';
     return h;
   }
 
@@ -1434,31 +1643,72 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     return h;
   }
 
+  function segHTML() {
+    function B(m, label) { return '<button class="segbtn" data-act="mode" data-mode="' + m + '" aria-pressed="' + (S.mode === m) + '">' + label + '</button>'; }
+    return '<div class="seg" role="group" aria-label="How to run the field test">' + B('guided', 'Guided (recommended)') + B('manual', 'Own tool: manual') + B('analyze', 'Own tool: analyzer') + '</div>';
+  }
+  function howTo() {
+    return '<details class="howto"><summary>How to answer: Yes, Unclear or No</summary><ul class="tight">' +
+      '<li><b>Yes</b>: the policy says it clearly, in plain words.</li>' +
+      '<li><b>Unclear</b>: it is only hinted at, partly answered, or too vague to rely on. "We may share data with partners" does not say which partners, so it is Unclear.</li>' +
+      '<li><b>No</b>: it is not mentioned, or the policy says the opposite of what you need.</li></ul></details>';
+  }
+
+  function guidedHTML() {
+    var ft = S.ft, pk = curPack(), role = S.role || 'teacher', n = CHECK.length;
+    if (!pk) {
+      return '<section class="panel stack"><div><h3>Step 1: pick a real tool</h3><p>You will read short summaries of what the tool\'s public policy says, then judge nine questions. <b>You do not need to leave this page.</b> It takes about 5 minutes.</p></div>' +
+        '<div class="packs">' + PACKS.map(function (p) { return '<button class="pack" data-act="packpick" data-id="' + p.id + '"><strong>' + esc(p.name) + '</strong><span class="packacc">' + esc(p.acct) + '</span><span>' + esc(p.blurb) + '</span></button>'; }).join('') + '</div>' +
+        '<div class="field"><label for="dist">School or district (optional)</label><input id="dist" type="text" placeholder="Your school or district" value="' + esc(S.dist) + '"></div>' +
+        howTo() + '<p class="small muted">The summaries were written from public vendor pages in October 2026. Companies change their terms often, so treat them as a snapshot.</p></section>';
+    }
+    if (ft.i >= n) {
+      var m = CHECK.filter(function (q) { return ft.ans[q.id] === pk.q[q.id].key; }).length;
+      return '<section class="panel stack"><h3>All nine answered</h3><p>You matched our reading on <b>' + m + ' of ' + n + '</b> questions. Your Clearance Card is ready, and it shows where we read things differently.</p>' +
+        '<div class="row"><button class="btn solid big" data-act="go" data-step="card">See my Clearance Card &rarr;</button><button class="btn" data-act="packreset">Check a different tool</button></div></section>';
+    }
+    var q = CHECK[ft.i], L = LENS[q.lens], d = pk.q[q.id], a = ft.ans[q.id], answered = a !== undefined;
+    function opt(val, label) { return '<button class="opt" data-act="ftans" data-v="' + val + '" aria-pressed="' + (a === val) + '"' + (answered ? ' disabled' : '') + '>' + label + '</button>'; }
+    var fb = '';
+    if (answered) {
+      var match = a === d.key;
+      fb = '<div class="feedback" style="--fc:' + (match ? 'var(--ok)' : 'var(--amber)') + '"><strong>' + (match ? 'You matched our reading: ' + VLAB[d.key][0] : 'We read it as ' + VLAB[d.key][0] + ' (you chose ' + VLAB[a][0] + ')') + '</strong>' + esc(d.why) + '</div>' +
+        (q.stop && a > 0 ? '<div class="small" style="color:var(--red)">Hard stop: an Unclear or No here can block a tool by itself.</div>' : '') +
+        '<div class="row"><button class="btn solid big" data-act="ftnext">' + (ft.i + 1 >= n ? 'Finish' : 'Next question') + ' &rarr;</button></div>';
+    }
+    return '<section class="panel stack" id="ftq"><div class="row" style="justify-content:space-between"><span class="small muted">' + esc(pk.name) + ' &middot; ' + esc(pk.acct) + '</span><button class="linkbtn" data-act="packreset">Change tool</button></div>' +
+      '<div class="progress"><span>Question ' + (ft.i + 1) + ' of ' + n + '</span><div class="meter"><i style="width:' + (ft.i / n * 100) + '%"></i></div></div>' +
+      '<div class="q" style="--c:' + L.c + '"><div class="row" style="justify-content:space-between"><span class="tag" style="--c:' + L.c + '">' + icon(q.lens, 13) + L.name + '</span>' + (q.stop ? '<span class="stop">Hard stop</span>' : '') + '</div>' +
+      '<div class="qt">' + esc(q.t[role]) + '</div>' +
+      '<div class="evbox"><div class="evtitle">What the policy says (summary)</div><ul>' + d.ev.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="opts">' + opt(0, 'Yes') + opt(1, 'Unclear') + opt(2, 'No') + '</div>' + (answered ? '' : '<div class="small muted">Yes = clearly stated. Unclear = vague, partial or only hinted. No = not stated.</div>') + fb + '</div>' +
+      '<details><summary>Sources (optional)</summary><div class="links">' + pk.src.map(a2).join('') + '</div></details></section>';
+  }
+  function a2(l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener noreferrer">' + esc(l[0]) + ' &#8599;</a>'; }
+
   function vPill() {
-    var r = risk(), auto = S.mode === 'auto';
-    var h = '<section class="panel stack"><div><h2>Field test</h2>' +
-      '<p class="prompt">Run the same check on a <b>real</b> AI tool. Pick one you or your class actually uses or wants to use. Choose how you want to do it.</p></div>' +
-      '<div class="roles"><button class="role" data-act="mode" data-mode="manual" aria-pressed="' + (!auto && S.mode !== 'analyze') + '"><strong>MANUAL</strong>Find the policy link, read it yourself, and answer each question. Works on any tool.</button>' +
-      '<button class="role" data-act="mode" data-mode="analyze" aria-pressed="' + (S.mode === 'analyze') + '"><strong>POLICY ANALYZER</strong>Paste any tool\'s policy and see highlighted evidence for each answer. Runs in your browser. Works on any tool.</button>' +
-      '<button class="role" data-act="mode" data-mode="auto" aria-pressed="' + auto + '"><strong>QUICK PROFILES</strong>Pick a popular tool and see what its public terms said about schools when last checked (Oct 2026). Then verify and finish the rest.</button></div>' +
-      '<div class="fields"><div class="field"><label for="tool">Tool name</label><input id="tool" type="text" placeholder="e.g. ChatGPT, Gemini, Canva" value="' + esc(S.tool) + '"></div>' +
-      '<div class="field"><label for="dist">School / district</label><input id="dist" type="text" placeholder="Your school or district" value="' + esc(S.dist) + '"></div>' +
+    var r = risk(), role = S.role || 'teacher';
+    var intro = S.mode === 'guided' ? 'Judge a real AI tool. You get short summaries of what its public policy says, so you do not need to leave this page.' : 'Bring your own tool. Use this when you want to check a tool that is not in the guided list.';
+    var head = '<section class="panel stack"><div><h2>Field test</h2><p class="prompt">' + intro + '</p></div>' + segHTML() + '</section>';
+    if (S.mode === 'guided') return head + guidedHTML();
+    var h = '<section class="panel stack"><div class="fields"><div class="field"><label for="tool">Which AI tool are you checking? (the tool, not this activity)</label><input id="tool" type="text" placeholder="e.g. ChatGPT, Gemini, Canva" value="' + esc(S.tool) + '"></div>' +
+      '<div class="field"><label for="dist">School / district (optional)</label><input id="dist" type="text" placeholder="Your school or district" value="' + esc(S.dist) + '"></div>' +
       '<div class="field"><label for="pol">District policy you checked (optional)</label><input id="pol" type="text" placeholder="e.g. Policy name or number" value="' + esc(S.pol) + '"></div></div>';
-    if (auto) {
-      return h + '<div class="stack"><h3>Quick profiles</h3><div id="autobox" class="stack">' + autoHTML() + '</div></div></section>';
-    }
     if (S.mode === 'analyze') {
-      return h + '<div class="stack"><h3>Find the policy</h3><div id="finder" class="stack">' + finderHTML(S.tool) + '</div></div><div class="stack"><h3>Policy analyzer</h3>' + azHTML() + '</div></section>';
+      return head + h + '<div class="stack"><h3>Find the policy</h3><div id="finder" class="stack">' + finderHTML(S.tool) + '</div></div><div class="stack"><h3>Policy analyzer</h3>' + azHTML() + '</div></section>';
     }
-    h += '<div class="stack"><h3>Find the rules</h3><div id="finder" class="stack">' + finderHTML(S.tool) + '</div><p class="small muted">Links open the company\'s own pages in a new tab. The page cannot search the web for you, so the list is built in and may go out of date. If a link is dead, search for the tool\'s privacy policy directly.</p></div>' +
+    var missing = CHECK.filter(function (q) { return S.chk[q.id] === undefined; });
+    h += (r.answered > 0 && missing.length ? '<div class="autonote"><b>' + missing.length + ' question(s) still need your answer:</b> ' + missing.map(function (q) { return esc(q.t[role].split(' ').slice(0, 7).join(' ')) + '...'; }).join(' &middot; ') + '</div>' : '') +
+      '<div class="stack"><h3>Find the rules</h3><div id="finder" class="stack">' + finderHTML(S.tool) + '</div><p class="small muted">Links open the company\'s own pages in a new tab. The page cannot search the web for you, so the list is built in and may go out of date. If a link is dead, search for the tool\'s privacy policy directly.</p></div>' +
+      howTo() +
       '<div class="progress"><span>' + r.answered + ' of ' + CHECK.length + ' answered</span><div class="meter"><i style="width:' + (r.answered / CHECK.length * 100) + '%"></i></div></div>' + riskGauges(r) + '</section>';
-    return h +
+    return head + h +
       Object.keys(LENS).map(function (k) {
         return '<section class="panel stack"><div><h3 style="color:' + LENS[k].c + '">' + LENS[k].name + ': ' + LENS[k].q + '</h3><p class="small muted">' + LENS[k].ask + '</p></div>' +
           CHECK.filter(function (q) { return q.lens === k; }).map(qHTML).join('') + '</section>';
       }).join('') +
       '<section class="panel stack"><div class="field"><label for="ask">One question I would ask the company before using it</label><textarea id="ask" rows="3" placeholder="Example: Can you confirm in writing that student work is never used to train your models?">' + esc(S.ask) + '</textarea></div>' +
-      '<div class="row"><button class="btn solid" data-act="go" data-step="card">Generate Clearance Card &rarr;</button></div></section>';
+      '<div class="row"><button class="btn solid big" data-act="go" data-step="card">Generate Clearance Card &rarr;</button></div></section>';
   }
 
   function riskGauges(r) {
@@ -1480,6 +1730,18 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     return lines.join('\n');
   }
 
+  function compareHTML() {
+    var ft = S.ft, pk = curPack();
+    if (!pk || Object.keys(ft.ans).length < CHECK.length) return '';
+    var role = S.role || 'teacher';
+    var diffs = CHECK.filter(function (q) { return ft.ans[q.id] !== pk.q[q.id].key; });
+    var m = CHECK.length - diffs.length;
+    return '<div class="small"><span class="muted">COMPARED WITH OUR NOTES</span><br>You matched our reading on ' + m + ' of ' + CHECK.length + ' questions.' +
+      (diffs.length ? '<details><summary>Where we read it differently (' + diffs.length + ')</summary><ul class="tight">' + diffs.map(function (q) {
+        return '<li><b>' + esc(q.t[role]) + '</b> You chose ' + VLAB[ft.ans[q.id]][0] + '. We read it as ' + VLAB[pk.q[q.id].key][0] + '. ' + esc(pk.q[q.id].why) + '</li>';
+      }).join('') + '</ul></details>' : '') + '</div>';
+  }
+
   function vCard() {
     var r = risk(), V = VERDICT[r.v], role = S.role || 'teacher', anim = S.anim === 'card', cid = cardId();
     var h = '<section class="panel stack"><div><h2>Clearance Card</h2><p class="prompt">Your evidence, in one place. Share it with your tech director or teacher, or keep it for the next tool. Tip: take a screenshot to save it.</p></div>' +
@@ -1490,19 +1752,22 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     if (r.v !== 'incomplete') {
       h += '<div class="rings">' + Object.keys(LENS).map(function (k) { return ringHTML(k, r.per[k]); }).join('') + '</div>';
       if (r.stops.length) h += '<div class="stops"><b>Hard stops triggered</b><ul>' + r.stops.map(function (q) { return '<li>' + esc(q.t[role]) + '</li>'; }).join('') + '</ul></div>';
-      if (Object.keys(S.auto).length) h += '<div class="small muted">' + Object.keys(S.auto).length + ' answer(s) were pre-filled by a quick profile or the policy analyzer and still need your confirmation.</div>';
+      if (r.v === 'green' && r.total === 0 && !curPack()) h += '<div class="stops"><b>Check your work.</b> Every answer was Yes. Almost no real tool earns that. Go back and look again at the hard-stop questions before you trust Cleared.</div>';
+      if (Object.keys(S.auto).length) h += '<div class="small muted">' + Object.keys(S.auto).length + ' answer(s) were pre-filled by the policy analyzer and still need your confirmation.</div>';
+      h += compareHTML();
       if (S.ask) h += '<div class="small"><span class="muted">QUESTION FOR THE COMPANY</span><br>' + esc(S.ask) + '</div>';
     } else {
-      h += '<p class="small muted">' + (CHECK.length - r.answered) + ' question(s) still blank.</p><div class="row"><button class="btn" data-act="go" data-step="pill">Back to the check</button></div>';
+      var missing = CHECK.filter(function (q) { return S.chk[q.id] === undefined; });
+      h += '<p class="small muted">' + missing.length + ' question(s) still blank: ' + missing.map(function (q) { return esc(q.t[role].split(' ').slice(0, 7).join(' ')) + '...'; }).join(' &middot; ') + '</p><div class="row"><button class="btn solid" data-act="go" data-step="pill">Go answer them</button></div>';
     }
     h += '</div>';
     if (r.v !== 'incomplete') h += '<div class="row"><button class="btn solid" data-act="copycard">Copy card text</button><button class="btn" data-act="go" data-step="pill">Edit answers</button><button class="btn" data-act="reset">Check another tool</button></div>';
     h += '<p class="small muted"><b>This card is a classroom exercise result. It is not district approval or legal advice.</b> Before real student data goes into any tool, your district\'s technology office must approve it.</p><p class="small muted">Local rules matter. Chester County has no county-level student privacy law of its own, so your district\'s board policies and technology office are the local authority. Pennsylvania adds breach-notification duties for personal information.</p></section>';
     h += badgesHTML();
-    h += '<section class="panel stack"><h3>Debrief questions</h3><ul class="tight"><li>Which lens was hardest to answer from the website alone? What does that say about the tool?</li>' +
-      '<li>Was there anything you could not find? Does "could not find it" change your verdict?</li>' +
+    h += '<section class="panel stack"><h3>Debrief questions</h3><ul class="tight"><li>Which lens was hardest to answer from the evidence alone? What does that say about the tool?</li>' +
+      '<li>Where did you and our notes read the same sentence differently? Why?</li>' +
       '<li>What would the company need to change to move this one from Blocked toward Cleared?</li>' +
-      '<li>When is it fine to use a tool that scores yellow, and with what content?</li></ul></section>';
+      '<li>When is it fine to use a tool that scores Ask First, and with what content?</li></ul></section>';
     h += feedbackPanel();
     return h;
   }
@@ -1511,9 +1776,10 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     var r = risk(), p = prod(), V = VERDICT[r.v], f = S.fb;
     var lines = ['THREAT SCANNER PILOT SUMMARY', 'Role: ' + roleLabel(), 'Scenario: ' + p.name + ' + ' + p.policyName + ' (level ' + S.tier + ', ' + TIERNAME[S.tier - 1] + ')'];
     if (S.history.length) lines.push('Scenario results: ' + S.history.map(function (h) { return h.name + ' ' + TIERNAME[h.tier - 1] + ' ' + h.band + ' (scan ' + Math.round(h.a * 100) + '%, missing ' + Math.round(h.b * 100) + '%)'; }).join('; '));
-    lines.push('Field test: ' + (S.tool || 'no tool named') + ' | verdict ' + V.label + ' | risk data ' + r.per.data + ', rules ' + r.per.rules + ', sight ' + r.per.sight + (r.stops.length ? ' | hard stops ' + r.stops.length : '') + (S.usedAz ? ' | used analyzer' : '') + (Object.keys(S.auto).length ? ' | auto-filled ' + Object.keys(S.auto).length : ''));
+    var pk = curPack();
+    lines.push('Field test: ' + (S.tool || 'no tool named') + ' | mode ' + S.mode + ' | verdict ' + V.label + ' | risk data ' + r.per.data + ', rules ' + r.per.rules + ', sight ' + r.per.sight + (r.stops.length ? ' | hard stops ' + r.stops.length : '') + (pk && Object.keys(S.ft.ans).length === CHECK.length ? ' | matched notes ' + CHECK.filter(function (q) { return S.ft.ans[q.id] === pk.q[q.id].key; }).length + '/' + CHECK.length : '') + (S.usedAz ? ' | used analyzer' : ''));
     if (S.dist) lines.push('School or district: ' + S.dist);
-    lines.push('Clarity (1-5): ' + (f.clear || 'n/a'), 'Minutes: ' + (f.time || 'n/a'), 'What I would change: ' + (f.say || 'n/a'), '(No student names or personal details.)');
+    lines.push('Clarity (1-5): ' + (f.clear || 'n/a'), 'Length felt: ' + (f.len || 'n/a'), 'Minutes (auto): ' + (elapsedMin() || 'n/a'), 'What I would change: ' + (f.say || 'n/a'), '(No student names or personal details.)');
     return lines.join('\n');
   }
 
@@ -1522,10 +1788,11 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     if (st === 'saving') msg = '<span class="muted small">Sending...</span>';
     else if (st === 'saved') msg = '<span class="small" style="color:var(--ok)">Sent. Thank you. You can edit and send again to replace it.</span>';
     else if (st) msg = '<span class="small" style="color:var(--red)">Could not send (' + esc(st) + '). Copy your summary and use the feedback form instead.</span>';
-    return '<section class="panel stack"><h3>Pilot feedback (for the designer)</h3><p class="small muted">Testing this activity? Answer these three questions. Then press Copy my summary and paste it into the feedback form' + (canSend ? ', or send it straight to the designer' : '') + '. Do not type student names or other personal details.</p>' +
-      '<div class="field"><label for="clear">How clear was the activity? (1 = confusing, 5 = very clear)</label><select id="clear"><option value="0">Choose</option>' + [1, 2, 3, 4, 5].map(function (n) { return '<option value="' + n + '"' + (f.clear == n ? ' selected' : '') + '>' + n + '</option>'; }).join('') + '</select></div>' +
-      '<div class="field"><label for="time">How long did it take, in minutes?</label><input id="time" type="text" placeholder="e.g. 18" value="' + esc(f.time) + '"></div>' +
-      '<div class="field"><label for="say">What would you change?</label><textarea id="say" rows="3" placeholder="What was confusing, too easy, too hard, or great?">' + esc(f.say) + '</textarea></div>' +
+    function tap(act, n, label, cur) { return '<button class="opt tap" data-act="' + act + '" data-n="' + n + '" aria-pressed="' + (String(cur) === String(n)) + '">' + label + '</button>'; }
+    return '<section class="panel stack"><h3>Feedback (optional, about 20 seconds)</h3><p class="small muted">This part is separate from the activity. It helps the designer improve it. Do not type student names or other personal details.</p>' +
+      '<div class="field"><label>How clear was the activity?</label><div class="taps">' + [1, 2, 3, 4, 5].map(function (n) { return tap('fbclear', n, n, f.clear); }).join('') + '</div><div class="small muted tapsleg"><span>1 = confusing</span><span>5 = very clear</span></div></div>' +
+      '<div class="field"><label>How did the length feel?</label><div class="taps">' + tap('fblen', 'short', 'Too short', f.len) + tap('fblen', 'right', 'Just right', f.len) + tap('fblen', 'long', 'Too long', f.len) + '</div></div>' +
+      '<div class="field"><label for="say">One thing you would change (optional)</label><textarea id="say" rows="2" placeholder="What was confusing, too easy, too hard, or great?">' + esc(f.say) + '</textarea></div>' +
       '<div class="row">' + (canSend ? '<button class="btn solid" data-act="submit"' + (st === 'saving' ? ' disabled' : '') + '>Send my results</button>' : '') +
       '<button class="btn' + (canSend ? '' : ' solid') + '" data-act="copyfb">Copy my summary</button>' +
       '<a class="btn" href="' + FORM_URL + '" target="_blank" rel="noopener noreferrer">Open the feedback form &#8599;</a>' + msg + '</div></section>';
@@ -1534,14 +1801,16 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
   function payload() {
     var r = risk(), t = tally();
     function cap(x, n) { return String(x || '').slice(0, n); }
+    var pk = curPack();
     return {
-      v: 1, at: new Date().toISOString(), analyzer: !!S.usedAz, scenario: prod().id, scenarioB: prod().policyName, tier: S.tier, ladder: S.history.map(function (h) { return { id: h.id, tier: h.tier, a: Math.round(h.a * 100), b: Math.round(h.b * 100), band: h.band }; }), role: S.role || 'none', mode: S.mode,
+      v: 2, at: new Date().toISOString(), analyzer: !!S.usedAz, scenario: prod().id, scenarioB: prod().policyName, tier: S.tier, ladder: S.history.map(function (h) { return { id: h.id, tier: h.tier, a: Math.round(h.a * 100), b: Math.round(h.b * 100), band: h.band }; }), role: S.role || 'none', mode: S.mode,
+      pack: pk ? pk.id : '', matched: pk ? CHECK.filter(function (q) { return S.ft.ans[q.id] === pk.q[q.id].key; }).length : null,
       tool: cap(S.tool, 120), district: cap(S.dist, 120), policy: cap(S.pol, 120), ask: cap(S.ask, 600),
       verdict: r.v, risk: r.per, total: r.total, answered: r.answered, stops: r.stops.map(function (q) { return q.id; }),
       answers: S.chk, autoFilled: Object.keys(S.auto),
       decode: { caught: t.caught, wrongLens: t.lens, missed: t.miss, falseAlarm: t.falseAlarm, done: t.done, flags: t.flags },
       silenceDone: Object.keys(S.sil).length,
-      clarity: S.fb.clear || 0, minutes: cap(S.fb.time, 12), comment: cap(S.fb.say, 1500)
+      clarity: S.fb.clear || 0, length: S.fb.len || '', minutes: String(elapsedMin() || ''), comment: cap(S.fb.say, 1500)
     };
   }
 
@@ -1592,17 +1861,17 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
       '<li><b>Audience:</b> high school teachers and students together or separately (grades 9 to 12 and school staff). Works with middle school with teacher support.</li>' +
       '<li><b>One line:</b> Learners scan a sample AI tool\'s fine print through three lenses (Data, Rules, Sight), then run the same check on a real tool and leave with a Clearance Card verdict.</li>' +
       '<li><b>Time:</b> 15 minutes. One device per person or per pair.</li>' +
-      '<li><b>Adaptive ladder:</b> everyone starts at the Standard level. After each scenario, learners see their scores and a recommendation: step down to an easier scenario if it was tough, or up to a harder one if it went well. They can always continue to the field test instead. Hard scenarios are subtler and include scary-sounding clauses that are actually fine. The level ladder and badges (Comeback, Summit Reached, Hard Mode Hero, Full Ladder, Perfect Run) track progress without a timer or leaderboard.</li>' +
-      '<li><b>Field test options:</b> learners can work Manual (read the policy themselves), use the Policy Analyzer (paste any policy text and get highlighted evidence for each answer; it runs in the browser with no AI and uploads nothing), or start from Quick Profiles (hand-checked notes on five popular tools). The analyzer finds evidence. Learners still judge it, and district approval is always the last step.</li>' +
-      '<li><b>Fresh every time:</b> each level has one or two different scenarios (new sample tools, clauses and "what is missing" policies), picked at random. Clause order is shuffled too, so neighbors cannot copy answers.</li>' +
+      '<li><b>Adaptive ladder:</b> everyone starts at the Easy level. After each scenario, learners see their scores and a recommendation: step down to an easier scenario if it was tough, or up to a harder one if it went well. They can always continue to the field test instead. Hard scenarios are subtler and include scary-sounding clauses that are actually fine. The level ladder and badges (Comeback, Summit Reached, Hard Mode Hero, Full Ladder, Perfect Run) track progress without a timer or leaderboard.</li>' +
+      '<li><b>Field test:</b> the Guided option is self-contained. Learners pick a real tool (ChatGPT, Gemini, Canva or Claude, with the account type that matters) and read short summaries of what its public policy says, one question at a time, then see how their reading compares to ours. Advanced learners can bring their own tool and use Manual (read the policy themselves) or the Policy Analyzer (paste a policy and get highlighted evidence; it runs in the browser with no AI and uploads nothing). Learners still judge the evidence, and district approval is always the last step.</li>' +
+      '<li><b>Fresh every time:</b> each level has two different scenarios per path (twelve in all) (new sample tools, clauses and "what is missing" policies), picked at random. Clause order is shuffled too, so neighbors cannot copy answers.</li>' +
       '<li><b>Skill taught:</b> a repeatable method for judging any AI tool\'s privacy and security before trusting it with real use.</li>' +
-      '<li><b>Prep:</b> have each learner or pair name a real tool before starting. Tools that need no login to view the policy keep the five minutes on task.</li></ul></div>' +
+      '<li><b>Prep:</b> nothing is needed for the Guided field test. For the own-tool options, have each learner pick a tool whose policy can be read without logging in.</li></ul></div>' +
       '<div class="stack"><h3>Run of show</h3><div class="tablewrap"><table><thead><tr><th>Time</th><th>Step</th><th>Facilitator move</th></tr></thead><tbody>' +
-      '<tr><td>0:00</td><td>Briefing</td><td>Name the three lenses aloud. Learners pick teacher or student path.</td></tr>' +
-      '<tr><td>1:00</td><td>Scan, Part A</td><td>Learners work alone. Do not rescue them early. Ask one learner to defend a false alarm.</td></tr>' +
-      '<tr><td>5:30</td><td>Scan, Part B</td><td>Ask: "What did the vendor leave out?" Land the idea that silence is a flag.</td></tr>' +
-      '<tr><td>8:00</td><td>Field test</td><td>Pairs check a real tool. Circulate. Push on "where exactly did you find that?"</td></tr>' +
-      '<tr><td>13:00</td><td>Clearance Card and debrief</td><td>Compare verdicts across tools. Use two debrief questions. Collect feedback.</td></tr></tbody></table></div></div>' +
+      '<tr><td>0:00</td><td>Briefing</td><td>Read the purpose aloud and name the three lenses. Learners pick a path.</td></tr>' +
+      '<tr><td>2:00</td><td>Scan, Part A</td><td>Learners work alone. Do not rescue them early. Ask one learner to defend a false alarm.</td></tr>' +
+      '<tr><td>6:00</td><td>Results and Part B</td><td>Pause on the results page. Ask: "What did the vendor leave out?" Land the idea that silence is a flag.</td></tr>' +
+      '<tr><td>9:00</td><td>Field test (guided)</td><td>Learners pick a real tool and judge nine questions from the evidence on the page. Circulate and ask them to point to the sentence behind each answer.</td></tr>' +
+      '<tr><td>13:30</td><td>Clearance Card and debrief</td><td>Compare verdicts and where learners read the evidence differently from the notes. Use two debrief questions. Collect feedback.</td></tr></tbody></table></div></div>' +
       '<div class="stack"><h3>Rules cheat sheet (shown to learners as hints)</h3><div class="tablewrap"><table><tbody>' +
       LAWS.map(function (l) { return '<tr><td style="white-space:nowrap"><b>' + l[0] + '</b></td><td>' + l[1] + '</td></tr>'; }).join('') + '</tbody></table></div>' +
       '<p class="small muted">Educational summary, not legal advice. Citations and any new Pennsylvania or district AI rules should be confirmed with your district solicitor or technology director before you share this widely.</p></div>' +
@@ -1626,9 +1895,19 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     var b = e.target.closest('[data-act]'); if (!b) return;
     var act = b.getAttribute('data-act'), i = +b.getAttribute('data-i');
     if (act === 'go') { S.step = b.getAttribute('data-step'); if (S.step === 'card') S.anim = 'card'; render(); window.scrollTo(0, 0); return; }
-    if (act === 'role') { var rl = b.getAttribute('data-role'); if (S.role !== rl) { S.role = rl; S.order = null; S.history = []; } if (!S.order) pickSet(rl, 2); render(); return; }
+    if (act === 'role') { var rl = b.getAttribute('data-role'); if (S.role !== rl) { S.role = rl; S.order = null; S.history = []; } if (!S.order) pickSet(rl, 1); if (!S.t0) S.t0 = Date.now(); render(); return; }
     if (act === 'newset' || act === 'harder' || act === 'easier') { var tg = act === 'harder' ? Math.min(3, S.tier + 1) : act === 'easier' ? Math.max(1, S.tier - 1) : S.tier; pickSet(S.role || 'teacher', tg); render(); window.scrollTo(0, 0); return; }
     if (act === 'setpick') { var rl2 = b.getAttribute('data-role'); S.role = rl2; pickSet(rl2, undefined, i); S.step = 'decode'; render(); window.scrollTo(0, 0); return; }
+    if (act === 'phase') { S.phase = b.getAttribute('data-p'); if (S.phase === 'R') logIfDone(); render(); window.scrollTo(0, 0); return; }
+    if (act === 'packpick') {
+      var pkx = PACKS.filter(function (p2) { return p2.id === b.getAttribute('data-id'); })[0]; if (!pkx) return;
+      S.ft = { pack: pkx.id, i: 0, ans: {} }; S.chk = {}; S.auto = {}; S.tool = pkx.name + ': ' + pkx.acct; render(); window.scrollTo(0, 0); return;
+    }
+    if (act === 'packreset') { S.ft = { pack: null, i: 0, ans: {} }; S.chk = {}; S.auto = {}; S.tool = ''; render(); window.scrollTo(0, 0); return; }
+    if (act === 'ftans') { var qq = CHECK[S.ft.i]; if (!qq || S.ft.ans[qq.id] !== undefined) return; var vv = +b.getAttribute('data-v'); S.ft.ans[qq.id] = vv; S.chk[qq.id] = vv; render(); return; }
+    if (act === 'ftnext') { S.ft.i = Math.min(CHECK.length, S.ft.i + 1); render(); setTimeout(function () { var el = document.getElementById('ftq'); if (el) el.scrollIntoView({ block: 'start' }); else window.scrollTo(0, 0); }, 30); return; }
+    if (act === 'fbclear') { S.fb.clear = +b.getAttribute('data-n'); render(); return; }
+    if (act === 'fblen') { S.fb.len = b.getAttribute('data-n'); render(); return; }
     if (act === 'pill') {
       var v = b.getAttribute('data-v');
       S.c[i] = v === 'safe' ? { v: 'safe', locked: true } : { v: 'flag', lens: null, locked: false };
@@ -1672,7 +1951,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     }
     if (act === 'loadres') { loadResults(); return; }
     if (act === 'copyfb') { copy(summaryText()); return; }
-    if (act === 'reset') { S.chk = {}; S.auto = {}; S.tool = ''; S.ask = ''; S.step = 'pill'; render(); window.scrollTo(0, 0); }
+    if (act === 'reset') { S.chk = {}; S.auto = {}; S.tool = ''; S.ask = ''; S.ft = { pack: null, i: 0, ans: {} }; S.step = 'pill'; render(); window.scrollTo(0, 0); }
   });
   document.addEventListener('input', function (e) {
     var id = e.target.id;
@@ -1681,8 +1960,6 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     else if (id === 'dist') S.dist = e.target.value;
     else if (id === 'pol') S.pol = e.target.value;
     else if (id === 'ask') S.ask = e.target.value;
-    else if (id === 'clear') S.fb.clear = +e.target.value;
-    else if (id === 'time') S.fb.time = e.target.value;
     else if (id === 'say') S.fb.say = e.target.value;
   });
 
