@@ -344,6 +344,19 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 .opt.tap { min-width: 56px; }
 .opt.tap[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: rgba(34,211,255,.14); }
 .tapsleg { display: flex; justify-content: space-between; max-width: 340px; }
+
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.pbox { border: 1px solid var(--rc, var(--line)); background: rgba(255,255,255,.03); padding: 12px 14px; display: grid; gap: 4px; align-content: start; }
+.pbox.none { border-style: dashed; }
+.plab { font: 600 12px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.prank { font: 700 28px/1.1 var(--font-display); letter-spacing: .08em; color: var(--rc); text-shadow: 0 0 10px color-mix(in srgb, var(--rc) 50%, transparent); }
+.pscore { font: 700 20px/1.1 var(--font-display); color: var(--text); font-variant-numeric: tabular-nums; }
+.ranklvl { display: flex; gap: 4px; }
+.ranklvl i { width: 28px; height: 6px; background: #10264a; display: block; }
+.ranklvl i.on { background: var(--rc); box-shadow: 0 0 6px var(--rc); }
+.ranknote { margin-top: -4px; }
+.csec { display: grid; gap: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.cseclab { font: 700 12px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 </style>
 <style>[hidden]{display:none!important}</style>
 </head>
@@ -1081,7 +1094,9 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     var p = prod(), t = tally();
     if (t.done !== p.clauses.length || Object.keys(S.sil).length !== p.silence.length || S.logged[S.attempt]) return;
     var pf = perf(); S.logged[S.attempt] = true;
-    S.history.push({ id: p.id, name: p.name, tier: S.tier, a: pf.a, b: pf.b, score: pf.score, band: pf.band });
+    var sOk = p.silence.filter(function (q, k) { return S.sil[k] && (S.sil[k] === 'ans') === q.ans; }).length;
+    S.history.push({ id: p.id, name: p.name, tier: S.tier, a: pf.a, b: pf.b, score: pf.score, band: pf.band,
+      ta: { caught: t.caught, flags: t.flags, lens: t.lens, miss: t.miss, falseAlarm: t.falseAlarm }, sb: { ok: sOk, tot: p.silence.length } });
   }
   function ladderHTML() {
     var rank = { weak: 1, solid: 2, strong: 3 };
@@ -1718,11 +1733,56 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     return '<div class="gauges">' + gaugeHTML('answered', r.answered / CHECK.length, r.answered + '/' + CHECK.length, 'Questions answered', 'var(--accent)') + gaugeHTML('risk', pct, r.answered ? String(r.total) : '--', cap, col) + '</div>';
   }
 
+  var RANKS = [
+    { min: 0.85, name: 'ELITE', n: 4, color: 'var(--ok)' },
+    { min: 0.65, name: 'SPECIALIST', n: 3, color: 'var(--accent)' },
+    { min: 0.40, name: 'ANALYST', n: 2, color: 'var(--amber)' },
+    { min: 0, name: 'RECRUIT', n: 1, color: 'var(--muted)' }
+  ];
+  function rankFor(v) { for (var i = 0; i < RANKS.length; i++) if (v >= RANKS[i].min - 1e-9) return RANKS[i]; return RANKS[RANKS.length - 1]; }
+
+  function partAttempts() {
+    var arr = S.history.map(function (h) { return { name: h.name, tier: h.tier, a: h.a, b: h.b, ta: h.ta, sb: h.sb }; });
+    var p = prod(), t = tally();
+    if (!S.logged[S.attempt]) {
+      var cur = { name: p.name, tier: S.tier, a: null, b: null, ta: null, sb: null };
+      if (t.done === p.clauses.length) { cur.a = (t.caught + t.ok + 0.5 * t.lens) / p.clauses.length; cur.ta = { caught: t.caught, flags: t.flags, lens: t.lens, miss: t.miss, falseAlarm: t.falseAlarm }; }
+      if (Object.keys(S.sil).length === p.silence.length) {
+        var sOk = p.silence.filter(function (q, k) { return S.sil[k] && (S.sil[k] === 'ans') === q.ans; }).length;
+        cur.b = sOk / p.silence.length; cur.sb = { ok: sOk, tot: p.silence.length };
+      }
+      if (cur.a !== null || cur.b !== null) arr.push(cur);
+    }
+    return arr;
+  }
+  function partBest(kind) {
+    var arr = partAttempts().filter(function (x) { return x[kind] !== null && x[kind] !== undefined; });
+    if (!arr.length) return null;
+    var best = arr[0]; arr.forEach(function (x) { if (x[kind] >= best[kind]) best = x; });
+    return { val: best[kind], name: best.name, tier: best.tier, ta: best.ta, sb: best.sb, count: arr.length };
+  }
+  function partBox(label, best, kind) {
+    if (!best) return '<div class="pbox none"><div class="plab">' + label + '</div><div class="small muted">Not completed yet.</div></div>';
+    var rk = rankFor(best.val), bar = '';
+    for (var i = 1; i <= 4; i++) bar += '<i' + (i <= rk.n ? ' class="on"' : '') + '></i>';
+    var detail = kind === 'a' && best.ta
+      ? 'Caught ' + best.ta.caught + ' of ' + best.ta.flags + ' flags. ' + best.ta.lens + ' on the wrong lens, ' + best.ta.miss + ' missed, ' + best.ta.falseAlarm + ' false alarm' + (best.ta.falseAlarm === 1 ? '' : 's') + '.'
+      : best.sb ? 'Got ' + best.sb.ok + ' of ' + best.sb.tot + ' right.' : '';
+    return '<div class="pbox" style="--rc:' + rk.color + '"><div class="plab">' + label + '</div><div class="prank">' + rk.name + '</div><div class="ranklvl" aria-hidden="true">' + bar + '</div>' +
+      '<div class="pscore">' + Math.round(best.val * 100) + '%</div><div class="small muted">' + detail + '</div>' +
+      '<div class="small muted">' + esc(best.name) + ' &middot; ' + TIERNAME[best.tier - 1] + (best.count > 1 ? ' &middot; best of ' + best.count : '') + '</div></div>';
+  }
+  function partsHTML() {
+    return '<div class="parts">' + partBox('Part A &middot; Spotting risks', partBest('a'), 'a') + partBox('Part B &middot; What is missing', partBest('b'), 'b') + '</div>' +
+      '<div class="small muted ranknote">Ranks: Recruit under 40%, Analyst 40 to 64%, Specialist 65 to 84%, Elite 85% and up. Each uses your best scenario.</div>';
+  }
+
   function cardText() {
-    var r = risk(), V = VERDICT[r.v], d = new Date().toLocaleDateString();
-    var lines = ['CLEARANCE CARD', 'Tool: ' + (S.tool || '(not named)'), 'Checked by: ' + roleLabel() + (S.dist ? ', ' + S.dist : ''), 'Date: ' + d];
+    var r = risk(), V = VERDICT[r.v], d = new Date().toLocaleDateString(), pa = partBest('a'), pb = partBest('b');
+    function pl(label, b) { return b ? label + ': ' + rankFor(b.val).name + ' ' + Math.round(b.val * 100) + '% (' + b.name + ', ' + TIERNAME[b.tier - 1] + ')' : label + ': not completed'; }
+    var lines = ['CLEARANCE CARD', 'Checked by: ' + roleLabel() + (S.dist ? ', ' + S.dist : ''), 'Date: ' + d, '', pl('PART A, spotting risks', pa), pl('PART B, what is missing', pb), '', 'FIELD TEST', 'Tool: ' + (S.tool || '(not named)')];
     if (S.pol) lines.push('District policy checked: ' + S.pol);
-    lines.push('', 'VERDICT: ' + V.label, 'Next step: ' + V.next, '');
+    lines.push('VERDICT: ' + V.label, 'Next step: ' + V.next, '');
     Object.keys(LENS).forEach(function (k) { lines.push(LENS[k].name + ': ' + lensStatus(r.per[k]) + ' (' + r.per[k] + '/6 risk)'); });
     if (r.stops.length) { lines.push('', 'Hard stops:'); r.stops.forEach(function (q) { lines.push('- ' + q.t[S.role || 'teacher']); }); }
     if (S.ask) lines.push('', 'Question for the company: ' + S.ask);
@@ -1744,10 +1804,12 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
 
   function vCard() {
     var r = risk(), V = VERDICT[r.v], role = S.role || 'teacher', anim = S.anim === 'card', cid = cardId();
-    var h = '<section class="panel stack"><div><h2>Clearance Card</h2><p class="prompt">Your evidence, in one place. Share it with your tech director or teacher, or keep it for the next tool. Tip: take a screenshot to save it.</p></div>' +
+    var h = '<section class="panel stack"><div><h2>Clearance Card</h2><p class="prompt">Your whole snapshot in one place: how you did on the practice and on a real tool. Share it with your tech director or teacher, or keep it. Tip: take a screenshot to save it.</p></div>' +
       '<div class="card' + (anim ? ' anim' : '') + '" style="--vc:' + V.color + '">' +
       '<div class="cardhead"><span>THREAT SCANNER &middot; CLEARANCE CARD</span><span class="cid">' + cid + barcode(cid) + '</span></div>' +
-      '<div class="card-top"><div class="kv">TOOL<br><b>' + esc(S.tool || 'Not named yet') + '</b></div><div class="kv">CHECKED BY<br><b>' + roleLabel() + (S.dist ? ', ' + esc(S.dist) : '') + '</b></div><div class="kv">DATE<br><b>' + new Date().toLocaleDateString() + '</b></div></div>' +
+      '<div class="card-top"><div class="kv">CHECKED BY<br><b>' + roleLabel() + (S.dist ? ', ' + esc(S.dist) : '') + '</b></div><div class="kv">DATE<br><b>' + new Date().toLocaleDateString() + '</b></div></div>' +
+      partsHTML() +
+      '<div class="csec"><div class="cseclab">Field test &middot; real tool</div><div class="kv">TOOL<br><b>' + esc(S.tool || 'Not named yet') + '</b></div>' +
       '<div class="verdict">' + V.label + '<small>' + V.next + '</small></div>';
     if (r.v !== 'incomplete') {
       h += '<div class="rings">' + Object.keys(LENS).map(function (k) { return ringHTML(k, r.per[k]); }).join('') + '</div>';
@@ -1760,7 +1822,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
       var missing = CHECK.filter(function (q) { return S.chk[q.id] === undefined; });
       h += '<p class="small muted">' + missing.length + ' question(s) still blank: ' + missing.map(function (q) { return esc(q.t[role].split(' ').slice(0, 7).join(' ')) + '...'; }).join(' &middot; ') + '</p><div class="row"><button class="btn solid" data-act="go" data-step="pill">Go answer them</button></div>';
     }
-    h += '</div>';
+    h += '</div></div>';
     if (r.v !== 'incomplete') h += '<div class="row"><button class="btn solid" data-act="copycard">Copy card text</button><button class="btn" data-act="go" data-step="pill">Edit answers</button><button class="btn" data-act="reset">Check another tool</button></div>';
     h += '<p class="small muted"><b>This card is a classroom exercise result. It is not district approval or legal advice.</b> Before real student data goes into any tool, your district\'s technology office must approve it.</p><p class="small muted">Local rules matter. Chester County has no county-level student privacy law of its own, so your district\'s board policies and technology office are the local authority. Pennsylvania adds breach-notification duties for personal information.</p></section>';
     h += badgesHTML();
@@ -1778,6 +1840,8 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     if (S.history.length) lines.push('Scenario results: ' + S.history.map(function (h) { return h.name + ' ' + TIERNAME[h.tier - 1] + ' ' + h.band + ' (scan ' + Math.round(h.a * 100) + '%, missing ' + Math.round(h.b * 100) + '%)'; }).join('; '));
     var pk = curPack();
     lines.push('Field test: ' + (S.tool || 'no tool named') + ' | mode ' + S.mode + ' | verdict ' + V.label + ' | risk data ' + r.per.data + ', rules ' + r.per.rules + ', sight ' + r.per.sight + (r.stops.length ? ' | hard stops ' + r.stops.length : '') + (pk && Object.keys(S.ft.ans).length === CHECK.length ? ' | matched notes ' + CHECK.filter(function (q) { return S.ft.ans[q.id] === pk.q[q.id].key; }).length + '/' + CHECK.length : '') + (S.usedAz ? ' | used analyzer' : ''));
+    var ba = partBest('a'), bb = partBest('b');
+    lines.push('Card ranks: Part A ' + (ba ? rankFor(ba.val).name + ' ' + Math.round(ba.val * 100) + '%' : 'not completed') + ', Part B ' + (bb ? rankFor(bb.val).name + ' ' + Math.round(bb.val * 100) + '%' : 'not completed'));
     if (S.dist) lines.push('School or district: ' + S.dist);
     lines.push('Clarity (1-5): ' + (f.clear || 'n/a'), 'Length felt: ' + (f.len || 'n/a'), 'Minutes (auto): ' + (elapsedMin() || 'n/a'), 'What I would change: ' + (f.say || 'n/a'), '(No student names or personal details.)');
     return lines.join('\n');
@@ -1804,7 +1868,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
     var pk = curPack();
     return {
       v: 2, at: new Date().toISOString(), analyzer: !!S.usedAz, scenario: prod().id, scenarioB: prod().policyName, tier: S.tier, ladder: S.history.map(function (h) { return { id: h.id, tier: h.tier, a: Math.round(h.a * 100), b: Math.round(h.b * 100), band: h.band }; }), role: S.role || 'none', mode: S.mode,
-      pack: pk ? pk.id : '', matched: pk ? CHECK.filter(function (q) { return S.ft.ans[q.id] === pk.q[q.id].key; }).length : null,
+      partA: partBest('a') ? Math.round(partBest('a').val * 100) : null, partB: partBest('b') ? Math.round(partBest('b').val * 100) : null, pack: pk ? pk.id : '', matched: pk ? CHECK.filter(function (q) { return S.ft.ans[q.id] === pk.q[q.id].key; }).length : null,
       tool: cap(S.tool, 120), district: cap(S.dist, 120), policy: cap(S.pol, 120), ask: cap(S.ask, 600),
       verdict: r.v, risk: r.per, total: r.total, answered: r.answered, stops: r.stops.map(function (q) { return q.id; }),
       answers: S.chk, autoFilled: Object.keys(S.auto),
@@ -1875,7 +1939,7 @@ a.btn { display: inline-flex; align-items: center; text-decoration: none; }
       '<div class="stack"><h3>Rules cheat sheet (shown to learners as hints)</h3><div class="tablewrap"><table><tbody>' +
       LAWS.map(function (l) { return '<tr><td style="white-space:nowrap"><b>' + l[0] + '</b></td><td>' + l[1] + '</td></tr>'; }).join('') + '</tbody></table></div>' +
       '<p class="small muted">Educational summary, not legal advice. Citations and any new Pennsylvania or district AI rules should be confirmed with your district solicitor or technology director before you share this widely.</p></div>' +
-      '<details><summary>How the Clearance Card is scored</summary><p>Each of nine questions scores 0 (yes), 1 (unclear) or 2 (no or not found). Each lens can total 0 to 6. Any "No" or "Unclear" on a hard-stop question forces BLOCKED, because those questions cover training use, age and consent, and a findable policy. Otherwise 0 to 4 total is CLEARED, 5 to 9 is ASK FIRST, and 10 or more is BLOCKED. Even CLEARED never means real student data without district approval.</p></details>' +
+      '<details><summary>How the Clearance Card is built</summary><p>The card has three parts. Part A and Part B each show a rank from the learner\'s best scenario: Recruit (under 40%), Analyst (40 to 64%), Specialist (65 to 84%) or Elite (85% and up). The Field test section carries the verdict about the real tool, and it is scored as follows. Each of nine questions scores 0 (yes), 1 (unclear) or 2 (no or not found). Each lens can total 0 to 6. Any "No" or "Unclear" on a hard-stop question forces BLOCKED, because those questions cover training use, age and consent, and a findable policy. Otherwise 0 to 4 total is CLEARED, 5 to 9 is ASK FIRST, and 10 or more is BLOCKED. Even CLEARED never means real student data without district approval.</p></details>' +
       '<details><summary>Pick a specific scenario (for demos)</summary><div class="stack"><div class="small muted">Teacher path</div><div class="row">' + PRODUCTS.teacher.map(function (pr, k) { return '<button class="chipbtn" data-act="setpick" data-role="teacher" data-i="' + k + '">' + esc(pr.name) + ' + ' + esc(pr.policyName) + ' (' + TIERNAME[pr.tier - 1] + ')</button>'; }).join('') + '</div><div class="small muted">Student path</div><div class="row">' + PRODUCTS.student.map(function (pr, k) { return '<button class="chipbtn" data-act="setpick" data-role="student" data-i="' + k + '">' + esc(pr.name) + ' + ' + esc(pr.policyName) + ' (' + TIERNAME[pr.tier - 1] + ')</button>'; }).join('') + '</div></div></details>' +
       '<details><summary>Ideas to extend it</summary><ul class="tight"><li>Have teams argue one tool\'s verdict in front of a mock district board.</li><li>Rerun the check after the company updates its policy and compare the cards.</li><li>Students write a one-paragraph recommendation to their tech director.</li></ul></details>' +
       '</section>';
