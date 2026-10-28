@@ -11,6 +11,8 @@ A set of short, hands-on activities that teach teachers and students to question
   - **Clearance Card:** a three-part card with a rank for Part A, a rank for Part B, and a verdict for the real-tool Field test.
   - **Operator guide:** a run of show and discussion questions for facilitators.
 
+- **Module 02: Belief Debugger** (`belief-debugger/`). Short, interactive tests that challenge common beliefs about how AI works. Each item is a "bug" that ends with "patch notes" showing the evidence and a source. Bug 001, The Agreeable Assistant, is in development.
+
 ## Privacy
 
 Everything runs in the browser. No data is sent anywhere by the activities themselves. The Policy Analyzer matches phrases in pasted text locally and does not use AI. Pilot feedback is only collected if a person chooses to copy their summary and paste it into the feedback form.
@@ -25,11 +27,12 @@ These are teaching activities, not legal advice. Results are exercise results, n
 
 - `index.html`: the intro screen and module-select page.
 - `threat-scanner/index.html`: Module 01, the whole activity in one file (no build step, no dependencies).
+- `belief-debugger/index.html`: Module 02, the list of bugs (the first bug is still being built).
 
 ## Publish with GitHub Pages
 
 1. Create a new public repository on GitHub (for example `ai-mastery-interface`).
-2. Upload everything in this folder, keeping the structure: `index.html`, `README.md` and the `threat-scanner` folder (drag the files and the folder into the upload page, then commit).
+2. Upload everything in this folder, keeping the structure: `index.html`, `README.md`, and the `threat-scanner` and `belief-debugger` folders (drag the files and the folder into the upload page, then commit).
 3. Open the repository's Settings, then Pages. Under "Build and deployment," choose "Deploy from a branch," pick `main` and `/ (root)`, and save.
 4. After a minute the site is live at `https://YOUR-USERNAME.github.io/ai-mastery-interface/`.
 
