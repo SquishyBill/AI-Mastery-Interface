@@ -11,7 +11,7 @@ A set of short, hands-on activities that teach teachers and students to question
   - **Clearance Card:** a three-part card with a rank for Part A, a rank for Part B, and a verdict for the real-tool Field test.
   - **Operator guide:** a run of show and discussion questions for facilitators.
 
-- **Module 02: Belief Debugger** (`belief-debugger/`). Short, interactive tests that challenge common beliefs about how AI works. Each item is a "bug" that ends with "patch notes" showing the evidence and a source. Bug 001, The Agreeable Assistant, is in development.
+- **Module 02: Belief Debugger** (`belief-debugger/`). Short, interactive tests that challenge common beliefs about how AI works. Each item is a "bug" that ends with "patch notes" showing the evidence and a source. Bug 001, The Agreeable Assistant, is playable: visitors test an AI with a story idea, bet on its reaction, and see real recorded replies from two models.
 
 ## Privacy
 
@@ -27,7 +27,8 @@ These are teaching activities, not legal advice. Results are exercise results, n
 
 - `index.html`: the intro screen and module-select page.
 - `threat-scanner/index.html`: Module 01, the whole activity in one file (no build step, no dependencies).
-- `belief-debugger/index.html`: Module 02, the list of bugs (the first bug is still being built).
+- `belief-debugger/index.html`: Module 02, the list of bugs.
+- `belief-debugger/agreeable-assistant/index.html`: Bug 001, The Agreeable Assistant.
 
 ## Publish with GitHub Pages
 
